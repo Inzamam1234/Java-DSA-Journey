@@ -1,6 +1,16 @@
 import java.util.Scanner;
 
 public class Hello {
+
+    public static int addition(int a,int b){
+        return a+b;
+    }
+    public static int multi(int a,int b){
+        return a*b;
+    }
+    public static int sub(int a,int b){
+        return a-b;
+    }
     public static void main(String[] args) {
 
         /*System.out.println("HELLO World !!");
@@ -13,10 +23,15 @@ public class Hello {
         System.out.println("hello" +" "+ name + " "+"!!!!"); //Printing Output
         */
 
-        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number 1: ");
+        int a = sc.nextInt();
 
+        System.out.print("Enter number 2: ");
+        int b = sc.nextInt();
 
+        System.out.println("Addition: " + addition(a, b));
+        System.out.println("Multiplication: " + multi(a, b));
+        System.out.println("Subtraction: " + sub(a, b));
     }
-
-
 }
