@@ -23,7 +23,10 @@ public class Hello {
         System.out.println("hello" +" "+ name + " "+"!!!!"); //Printing Output
         */
 
+        
         Scanner sc = new Scanner(System.in);
+
+        /* 
         System.out.print("Enter number 1: ");
         int a = sc.nextInt();
 
@@ -33,5 +36,21 @@ public class Hello {
         System.out.println("Addition: " + addition(a, b));
         System.out.println("Multiplication: " + multi(a, b));
         System.out.println("Subtraction: " + sub(a, b));
+        */
+        
+        
+        System.out.println("Enter your sweet name : ");
+        String name = sc.nextLine();
+        System.out.println("Enter your Age : ");
+        int age = sc.nextInt();
+
+        System.out.println("hello "+ name + ",you are "+ age + " years old !!");
+
+
+
+
+
+
+
     }
 }
