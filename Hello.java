@@ -38,19 +38,20 @@ public class Hello {
         System.out.println("Subtraction: " + sub(a, b));
         */
         
-        
+        /* 
         System.out.println("Enter your sweet name : ");
         String name = sc.nextLine();
         System.out.println("Enter your Age : ");
         int age = sc.nextInt();
 
         System.out.println("hello "+ name + ",you are "+ age + " years old !!");
+        */
 
+        System.out.println("Enter a number : ");
+        int x = sc.nextInt();
+        System.out.println("Enter another number : ");
+        int y = sc.nextInt();
 
-
-
-
-
-
+        System.out.println("Average : " + ((x + y) / 2.0));
     }
 }
