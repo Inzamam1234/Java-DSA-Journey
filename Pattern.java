@@ -1,3 +1,4 @@
+import java.util.Scanner;
 class Pattern {
 
     public void pattern1(int n){
@@ -71,12 +72,38 @@ class Pattern {
             System.out.println();
         }
     }
+
+    public void pattern8(int n){
+        for(int i = 0; i < n; i++){
+            //space
+            for(int j = 0; j < i; j++){
+                System.out.print(" ");
+            }
+            //star
+            for(int j = 0;j < 2*n - (2*i+1); j++){
+                System.out.print("*");
+            }
+            //space
+            for(int j = 0; j < i; j++){
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+    
+
+
     public static void main (String[]args){
 
     Pattern sol = new Pattern();
-    int n = 5;
-    sol.pattern7(n);
+
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter the No.of.rows of Stars to be Printed : ");
+    int n = sc.nextInt();
+
     System.out.println();
+
+    sol.pattern8(n);
     }
 
 }
