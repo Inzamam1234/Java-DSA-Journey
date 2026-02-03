@@ -155,6 +155,39 @@ public class BasicMath {
         return sum == n;
     }
 
+    public static void FibonacciSeries(int n){
+        int a = 0;
+        int b = 1;
+
+       // Handle small cases
+        if (n == 1) {
+          System.out.print(0);
+          return;
+    }
+
+       // Print first two Fibonacci numbers
+        System.out.print(a + " " + b + " ");
+
+        // Generate remaining numbers
+        for(int i = 2; i < n; i++){
+            int c = a + b;
+            System.out.print(c +" ");
+
+            a = b;
+            b = c;
+        }
+
+    }
+    
+    public static boolean IsPowerOfTwo(int n){
+
+        if(n <= 0) return false; //Power of 2 must be positive
+
+        while(n % 2 == 0){ // Keep dividing by 2
+            n = n / 2;
+        }
+        return n == 1; 
+    }
     public static void main(String args[]) {
 
         Scanner sc = new Scanner(System.in);
@@ -164,7 +197,7 @@ public class BasicMath {
         int n = sc.nextInt();
         //System.out.print("Enter the base number : ");
         //int base = sc.nextInt();
-        //System.out.print("Enter the Power nmber for the base : ");
+        //System.out.print("Enter the Power number for the base : ");
         //int exp = sc.nextInt();
 
         BasicMath obj = new BasicMath(); // object creation
@@ -181,7 +214,8 @@ public class BasicMath {
         // EvenOddCount(n);
         //int answer = obj.PowerOfNumber(base, exp);
         //System.out.println("Power of Number is : " + answer);
-        System.out.println(obj.PerfectNumber(n));
-
+        //System.out.println(obj.PerfectNumber(n));
+        //FibonacciSeries(n);
+        System.out.println(obj.IsPowerOfTwo(n));
     }
 }
