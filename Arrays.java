@@ -27,6 +27,33 @@ public class Arrays {
         }
     }
 
+    public static int SecondLargest(int[] arr) {
+
+        int largest = Integer.MIN_VALUE;
+        int secondlargest = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > largest) {
+                secondlargest = largest;
+                largest = arr[i];
+            } else if (arr[i] > secondlargest && arr[i] != largest) {
+                secondlargest = arr[i];
+            }
+        }
+        return secondlargest;
+    }
+
+    public static int FrequencyCount(int[] arr, int target){
+
+        int count = 0;
+
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == target){
+                count++;
+            }
+        }
+        return count;
+    }
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -49,11 +76,21 @@ public class Arrays {
          * else{
          * System.out.println("Element Not found !!");
          * }
+         * 
+         * /*
+         * ReverseArray(arr);
+         * for (int i = 0; i < arr.length; i++) {
+         * System.out.print(arr[i] + " ");
+         * }
          */
-        ReverseArray(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        
+        int freq = FrequencyCount(arr, 4);
+        System.out.println("Target count : " + freq);
+        
+
+
+        //int second = SecondLargest(arr);
+        //System.out.println("Second Largest in an array : " + second);
 
         // for(int i = 0; i < arr.length; i++){
         // System.out.print(arr[i] + " "); //Travesal of an array
