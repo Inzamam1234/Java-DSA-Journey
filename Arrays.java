@@ -43,17 +43,36 @@ public class Arrays {
         return secondlargest;
     }
 
-    public static int FrequencyCount(int[] arr, int target){
+    public static int FrequencyCount(int[] arr, int target) {
 
         int count = 0;
 
-        for(int i = 0; i < arr.length; i++){
-            if(arr[i] == target){
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target) {
                 count++;
             }
         }
         return count;
     }
+
+    public static boolean IsSortedDesending(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < arr[i - 1]) {                //Decending Order
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean IsSortedAsending(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > arr[i - 1]) {                //Asending Order
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -83,14 +102,16 @@ public class Arrays {
          * System.out.print(arr[i] + " ");
          * }
          */
-        
-        int freq = FrequencyCount(arr, 1);
-        System.out.println("Target count : " + freq);
-        
 
+        // int freq = FrequencyCount(arr, 1);
+        // System.out.println("Target count : " + freq);
 
-        //int second = SecondLargest(arr);
-        //System.out.println("Second Largest in an array : " + second);
+        boolean result_Asending = IsSortedAsending(arr);
+        boolean result_Decending = IsSortedDesending(arr);
+        System.out.println(result_Asending);
+
+        // int second = SecondLargest(arr);
+        // System.out.println("Second Largest in an array : " + second);
 
         // for(int i = 0; i < arr.length; i++){
         // System.out.print(arr[i] + " "); //Travesal of an array
