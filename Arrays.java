@@ -84,7 +84,7 @@ public class Arrays {
          * }
          */
         
-        int freq = FrequencyCount(arr, 4);
+        int freq = FrequencyCount(arr, 1);
         System.out.println("Target count : " + freq);
         
 
