@@ -57,22 +57,63 @@ public class Arrays {
 
     public static boolean IsSortedDesending(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < arr[i - 1]) {                //Decending Order
+            if (arr[i] < arr[i - 1]) { // Decending Order
                 return false;
             }
         }
         return true;
     }
 
-    public static boolean IsSortedAsending(int[] arr) {
+    public static boolean IsSortedAscending(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
-            if (arr[i] > arr[i - 1]) {                //Asending Order
+            if (arr[i] > arr[i - 1]) { // Asending Order
                 return false;
             }
         }
         return true;
     }
 
+    public static void LeftRotateByOne(int[] arr) {
+        int first = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            arr[i - 1] = arr[i];
+        }
+        arr[arr.length - 1] = first;
+    }
+
+    public static void RightRotateByOne(int[] arr) {
+        int last = arr[arr.length - 1];
+
+        for (int i = arr.length - 2; i >= 0; i--) {
+            arr[i + 1] = arr[i];
+        }
+        arr[0] = last;
+    }
+
+    public static void MoveZerosToEnd(int[] arr) {
+        int index = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                arr[index] = arr[i];
+                index++;
+            }
+        }
+        while (index < arr.length) {
+            arr[index] = 0;
+            index++;
+        }
+    }
+
+    public static void leftRotateByK(int[] arr, int k) {
+
+        k = k % arr.length;   // handle k > length
+
+        for (int i = 0; i < k; i++) {
+            LeftRotateByOne(arr);
+        }
+    }
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -106,9 +147,18 @@ public class Arrays {
         // int freq = FrequencyCount(arr, 1);
         // System.out.println("Target count : " + freq);
 
-        boolean result_Asending = IsSortedAsending(arr);
-        boolean result_Decending = IsSortedDesending(arr);
-        System.out.println(result_Asending);
+        // boolean result_Asending = IsSortedAscending(arr);
+        // boolean result_Desending = IsSortedDesending(arr);
+        // System.out.println(result_Asending);
+
+        Arrays obj = new Arrays();
+        // obj.LeftRotateByOne(arr);
+        // obj.RightRotateByOne(arr);
+        //obj.MoveZerosToEnd(arr);
+        leftRotateByK(arr, 3);
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
 
         // int second = SecondLargest(arr);
         // System.out.println("Second Largest in an array : " + second);
