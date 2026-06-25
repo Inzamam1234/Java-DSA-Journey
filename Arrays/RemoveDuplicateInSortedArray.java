@@ -34,7 +34,7 @@ public class RemoveDuplicateInSortedArray {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
-        System.out.println(Arrays.toString(arr));
+        System.out.println((arr));
 
         RemoveDuplicateInSortedArray obj = new RemoveDuplicateInSortedArray();
 
