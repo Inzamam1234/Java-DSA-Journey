@@ -7,9 +7,15 @@ public class RemoveDuplicateInSortedArray {
     public ArrayList<Integer> removeDuplicates(int arr[]) {
 
         ArrayList<Integer> ans = new ArrayList<>();
+
+        if (arr.length == 0) {
+            return ans;
+        }
+
         int rd = 0;
 
         for (int i = 1; i < arr.length; i++) {
+
             if (arr[i] != arr[rd]) {
                 rd++;
                 arr[rd] = arr[i];
@@ -34,7 +40,9 @@ public class RemoveDuplicateInSortedArray {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
-        System.out.println((arr));
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
 
         RemoveDuplicateInSortedArray obj = new RemoveDuplicateInSortedArray();
 
