@@ -107,6 +107,26 @@ public class Arrays {
         }
     }
 
+    public static int maxSubArray(int arr[]){
+
+        int currentsum = 0;
+        int maxsum = Integer.MIN_VALUE;
+
+        for(int i = 0; i < arr.length; i++){
+
+            currentsum += arr[i];
+
+            if(currentsum > maxsum){
+                maxsum = currentsum;
+            }
+
+            if(currentsum < 0){
+                currentsum = 0;
+            }
+        }
+        return maxsum;
+    }
+
     public static void leftRotateByK(int[] arr, int k) {
 
         k = k % arr.length;   // handle k > length
@@ -156,11 +176,14 @@ public class Arrays {
         // obj.LeftRotateByOne(arr);
         // obj.RightRotateByOne(arr);
         //obj.MoveZerosToEnd(arr);
+
+        /* 
         leftRotateByK(arr, 3);
         for (int num : arr) {
             System.out.print(num + " ");
         }
-
+        */
+        
         // int second = SecondLargest(arr);
         // System.out.println("Second Largest in an array : " + second);
 
@@ -194,6 +217,8 @@ public class Arrays {
         // System.out.println("Maximum element : " + max);
         // System.out.println("Minimium element : " + min);
         // System.out.println("Sum of an array is : " + sum);
-
+        
+        int ans = maxSubArray(arr);
+        System.out.println(ans);
     }
 }
