@@ -21,10 +21,66 @@ public class Main {
         }
         return result.toString();
     }
+
+    public static boolean isAnagram(String s, String t) {
+        
+        if(s.length() != t.length()){
+            return false;
+        }
+
+        HashMap <Character, Integer> map = new HashMap<>();
+
+        for(char ch : s.toCharArray()){
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+
+        for(char ch : t.toCharArray()){
+            if(!map.containsKey(ch)){
+                return false;
+            }
+            map.put(ch, map.getOrDefault(ch, 0) - 1);
+        }
+
+        for(int freq : map.values()){
+            if(freq != 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isPalindrome(String s) {
+        
+        int left = 0;
+        int right = s.length() - 1;
+
+        while(left < right){
+            if(!Character.isLetterOrDigit(s.charAt(left))){
+                left++;
+            }
+            else if(!Character.isLetterOrDigit(s.charAt(right))){
+                right--;
+            }
+            else{
+
+                char l = Character.toLowerCase(s.charAt(left));
+                char r = Character.toLowerCase(s.charAt(right));
+
+                if(l != r){
+                    return false;
+                }
+
+                left++;
+                right--;
+            }
+        }
+        return true;
+    }
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
+        String s = sc.nextLine();
+        //String t = sc.nextLine();
         /* 
         StringBuilder ans = new StringBuilder();
 
@@ -37,7 +93,11 @@ public class Main {
         }
         System.out.println(ans);
         */
-        System.out.println(removeWhitespaces(str));
+        //System.out.println(removeWhitespaces(str));
+
+        //System.out.println(isAnagram(s, t));
+
+        System.out.println(isPalindrome(s));
         
     }
 }
