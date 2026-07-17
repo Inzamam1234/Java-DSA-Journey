@@ -1,4 +1,5 @@
 package Arrays;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Arrays {
@@ -42,6 +43,16 @@ public class Arrays {
             }
         }
         return secondlargest;
+    }
+
+    public int findlargest(int[] arr){
+        int largest = arr[0];
+        for(int i=1; i<arr.length; i++){
+            if(arr[i] > largest){
+                largest = arr[i];
+            }
+        }
+        return largest;
     }
 
     public static int FrequencyCount(int[] arr, int target) {
@@ -92,6 +103,30 @@ public class Arrays {
         arr[0] = last;
     }
 
+    public static void LeftRotate(int arr[], int k) {
+
+        int n = arr.length;
+
+        k = k % n;
+
+        reverse(arr, 0, k - 1);
+
+        reverse(arr, k, n - 1);
+
+        reverse(arr, 0, n - 1);
+
+    }
+
+    public static void reverse(int arr[], int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
     public static void MoveZerosToEnd(int[] arr) {
         int index = 0;
 
@@ -135,90 +170,105 @@ public class Arrays {
             LeftRotateByOne(arr);
         }
     }
+
+    public static int missingNumber(int[] nums) {
+        int n = nums.length;
+        int totalSum = n * (n + 1) / 2; // Sum of first n natural numbers
+        int arraySum = 0;
+
+        for (int num : nums) {
+            arraySum += num; // Sum of elements in the array
+        }
+
+        return totalSum - arraySum; // The missing number is the difference
+    }
+
+    public boolean isSorted(int[] arr){
+
+        for(int i = 1; i < arr.length; i++){       // Start from the second element and compare with the previous one
+            if(arr[i] < arr[i-1]){                 // If the current element is less than the previous one, the array is not sorted
+                return false;                      // Return false immediately if we find any pair of elements that are out of order
+            }
+        }
+        return true;
+    }
+
+    public static ArrayList<Integer> removeDuplicates(int arr[]) {
+
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        if (arr.length == 0) {
+            return ans;
+        }
+
+        int rd = 0;
+
+        for (int i = 1; i < arr.length; i++) {
+
+            if (arr[i] != arr[rd]) {
+                rd++;
+                arr[rd] = arr[i];
+            }
+        }
+
+        for (int i = 0; i <= rd; i++) {
+            ans.add(arr[i]);
+        }
+
+        return ans;
+    }
+
+    public static int SumOfElements(int arr[]) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum = sum + arr[i];
+        }
+        return sum;
+    }
+
+    public static int[] RunningSum(int arr[]) {
+
+        int result[] = new int[arr.length];
+        for (int i = 1; i < arr.length; i++) {
+            result[i] = arr[i] + result[i - 1];
+        }
+        return result;
+    }
+
+    public static int maxSubarray(int [] arr){ // Maximum Subarray
+        
+        int currsum = arr[0];
+        int maxsum = arr[0];
+
+        for(int i = 1; i < arr.length; i++){
+            
+            currsum = Math.max(arr[i], currsum + arr[i]);
+            maxsum = Math.max(maxsum, currsum);
+        }
+        return maxsum;
+    }
+
+    public static int maxiumumProfit(int arr[]){ // Best Time to Buy and Sell Stock
+
+        int minprice = Integer.MAX_VALUE;
+        int maxprofit = 0;
+
+        for(int i = 0; i < arr.length; i++){
+
+            if(arr[i] < minprice){
+                minprice = arr[i];
+            }
+            int profit = arr[i] - minprice;
+
+            if(profit > maxprofit){
+                maxprofit = profit;
+            }
+        }
+        return maxprofit;
+    }
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the No of elements for the array : ");
-        int n = sc.nextInt();
-
-        int[] arr = new int[n];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = sc.nextInt();
-        }
-
-        /*
-         * int target = 5; //Linear Search
-         * 
-         * int result = LinearSearch(arr, target);
-         * 
-         * if(result != -1){
-         * System.out.println("Element found at index : " + result);
-         * }
-         * else{
-         * System.out.println("Element Not found !!");
-         * }
-         * 
-         * /*
-         * ReverseArray(arr);
-         * for (int i = 0; i < arr.length; i++) {
-         * System.out.print(arr[i] + " ");
-         * }
-         */
-
-        // int freq = FrequencyCount(arr, 1);
-        // System.out.println("Target count : " + freq);
-
-        // boolean result_Asending = IsSortedAscending(arr);
-        // boolean result_Desending = IsSortedDesending(arr);
-        // System.out.println(result_Asending);
-
-        Arrays obj = new Arrays();
-        // obj.LeftRotateByOne(arr);
-        // obj.RightRotateByOne(arr);
-        //obj.MoveZerosToEnd(arr);
-
-        /* 
-        leftRotateByK(arr, 3);
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
-        */
         
-        // int second = SecondLargest(arr);
-        // System.out.println("Second Largest in an array : " + second);
-
-        // for(int i = 0; i < arr.length; i++){
-        // System.out.print(arr[i] + " "); //Travesal of an array
-        // }
-
-        // int sum = 0;
-        // for(int i = 0; i < arr.length; i++){
-        // sum = sum + arr[i]; //Sum of an array
-        // }
-
-        /*
-         * int max = arr[0];
-         * for(int i = 0; i < arr.length; i++){
-         * if(arr[i] > max){ //Maximum element in an array
-         * max = arr[i];
-         * }
-         * }
-         */
-
-        /*
-         * int min = arr[0];
-         * for(int i = 0; i < arr.length; i++){
-         * if(arr[i] < min){ //Maximum element in an array
-         * min = arr[i];
-         * }
-         * }
-         */
-
-        // System.out.println("Maximum element : " + max);
-        // System.out.println("Minimium element : " + min);
-        // System.out.println("Sum of an array is : " + sum);
-        
-        int ans = maxSubArray(arr);
-        System.out.println(ans);
     }
 }
