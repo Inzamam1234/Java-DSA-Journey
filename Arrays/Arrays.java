@@ -1,5 +1,6 @@
 package Arrays;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Arrays {
@@ -266,9 +267,38 @@ public class Arrays {
         }
         return maxprofit;
     }
+
+    public static int[] twosum(int arr[], int target){ // Two Sum
+
+        HashMap <Integer, Integer> map = new HashMap<>();
+
+        for(int i = 0; i < arr.length; i++){
+
+            int remainder = target - arr[i];
+
+            if(map.containsKey(remainder)){
+                return new int[]{map.get(remainder), i};
+            }
+            map.put(arr[i], i);
+        }
+
+        return new int[]{};
+    }
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        
+        int n = sc.nextInt();
+
+        int arr[] = new int[n];
+        for(int i = 0; i < n; i++){
+            arr[i] = sc.nextInt();
+        }
+
+        int target = sc.nextInt();
+
+        int result[] = twosum(arr, target);
+        for(int num : result){
+            System.out.print(num + " ");
+        }
     }
 }
