@@ -49,7 +49,7 @@ public class Main {
         return true;
     }
 
-    public static boolean isPalindrome(String s) {
+    public static boolean isPalindrome(String s) { //Leetcode Problem
         
         int left = 0;
         int right = s.length() - 1;
@@ -81,10 +81,12 @@ public class Main {
         
         HashMap <Character, Integer> map = new HashMap<>();
 
+        // Pass 1: Count frequencies
         for(char ch : s.toCharArray()){
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
 
+        // Pass 2: Find first unique character
         for(int i = 0; i < s.length(); i++){
 
             char ch = s.charAt(i);

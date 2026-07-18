@@ -165,12 +165,25 @@ class Main {
         }
         return index;
     }
+
+    public static boolean containsDuplicate(int arr[]){
+
+        HashSet <Integer> set = new HashSet<>();
+        
+        for(int num : arr){
+            if(set.contains(num)){
+                return true;
+            }
+            set.add(num);
+        }
+        return false;
+    }
     public static void main(String[] args) {
 
         //Scanner sc = new Scanner(System.in);
 
         //int n = sc.nextInt();
-        int arr[] = {0,0,1,1,1,2,2,3,3,4};
+        int arr[] = {0,1,2,3,4,4};
         //System.out.println("Target index : "+ LinearSearch(arr, 2));
         /* 
         int arr[] = new int[n];
@@ -190,12 +203,15 @@ class Main {
         //System.out.println(ReverseArray(arr));
         //FrequencyCountOfElements(arr);
         //System.out.println(RemoveDuplicateInSortedArray(arr));
+        /* 
         int k = removeDuplicates(arr);
         System.out.print("Array after removing duplicates: ");
         for (int i = 0; i < k; i++) {
             System.out.print(arr[i] + " ");
         }
-
+        */
+        boolean result = containsDuplicate(arr);
+        System.out.println(result);
     }
 }
 
