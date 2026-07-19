@@ -178,12 +178,52 @@ class Main {
         }
         return false;
     }
+
+    public static String reverse(String s){
+
+        char ch[] = s.toCharArray();
+
+        int left = 0;
+        int right = ch.length - 1;
+
+        while(left < right){
+            char temp = ch[left];
+            ch[left] = ch[right];
+            ch[right] = temp;
+
+            left++;
+            right--;
+        }
+        return new String(ch);
+    }
+
+    public static boolean validpalindrome(String s){
+
+        char ch[] = s.toCharArray();
+        int left = 0;
+        int right = ch.length - 1;
+
+        while(left < right){
+            if(ch[left] != ch[right]){
+                return false;
+            }
+
+            left++;
+            right--;
+        }
+        return true;
+
+    }
     public static void main(String[] args) {
 
         //Scanner sc = new Scanner(System.in);
 
+        String s = "ama";
+        //System.out.println(reverse(s));
+        System.out.println(validpalindrome(s));
+
         //int n = sc.nextInt();
-        int arr[] = {0,1,2,3,4,4};
+        //int arr[] = {0,1,2,3,4,4};
         //System.out.println("Target index : "+ LinearSearch(arr, 2));
         /* 
         int arr[] = new int[n];
@@ -209,9 +249,11 @@ class Main {
         for (int i = 0; i < k; i++) {
             System.out.print(arr[i] + " ");
         }
-        */
+        
         boolean result = containsDuplicate(arr);
         System.out.println(result);
+        */
+
     }
 }
 
