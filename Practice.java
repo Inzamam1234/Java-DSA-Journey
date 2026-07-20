@@ -214,13 +214,68 @@ class Main {
         return true;
 
     }
+
+    public static int uniqueElementinarray(int arr[]){ // Return only the unique elements count
+
+        if (arr.length == 0) return 0;
+
+        int cd = 0;
+
+        for(int i = 1; i < arr.length; i++){
+            if(arr[cd] != arr[i]){
+                arr[cd + 1] = arr[i];
+                cd++;
+            }
+        }
+        return cd;
+    }
+
+    public static boolean isomorphicString(String s, String t) {
+
+    // If lengths are different, they can't be isomorphic
+    if (s.length() != t.length()) {
+        return false;
+    }
+
+    HashMap<Character, Character> sToT = new HashMap<>();
+    HashMap<Character, Character> tToS = new HashMap<>();
+
+    for (int i = 0; i < s.length(); i++) {
+
+        char c1 = s.charAt(i);
+        char c2 = t.charAt(i);
+
+        // Check existing mapping from s -> t
+        if (sToT.containsKey(c1)) {
+            if (sToT.get(c1) != c2) {
+                return false;
+            }
+        }
+
+        // Check existing mapping from t -> s
+        if (tToS.containsKey(c2)) {
+            if (tToS.get(c2) != c1) {
+                return false;
+            }
+        }
+
+        // Store mappings
+        sToT.put(c1, c2);
+        tToS.put(c2, c1);
+    }
+
+    return true;
+}
     public static void main(String[] args) {
 
         //Scanner sc = new Scanner(System.in);
 
-        String s = "ama";
+        //String s = "ama";
         //System.out.println(reverse(s));
-        System.out.println(validpalindrome(s));
+        //System.out.println(validpalindrome(s));
+
+        int arr[] = {1, 2, 2, 3, 3, 3};
+        System.out.println(uniqueElementinarray(arr));
 
         //int n = sc.nextInt();
         //int arr[] = {0,1,2,3,4,4};
