@@ -24,7 +24,7 @@ public class Main {
 
     }
 
-    private boolean isVowel(char c) {
+    public static boolean isVowel(char c) {
         return c == 'a' ||
                 c == 'e' ||
                 c == 'i' ||
@@ -32,7 +32,7 @@ public class Main {
                 c == 'u';
     }
 
-    public int maxVowels(String s, int k) {
+    public static int maxVowels(String s, int k) {
 
         int vowel_count = 0;
 
@@ -68,6 +68,7 @@ public class Main {
     public static void main(String[] args) {
 
         int nums[] = { 2, 4, 5, 7, 8, 7, 6, 5, 4 };
-        System.out.println(findMaxAverage(nums, 3));
+        //System.out.println(findMaxAverage(nums, 3));
+        System.out.println(maxVowels("injamam", 4));
     }
 }
