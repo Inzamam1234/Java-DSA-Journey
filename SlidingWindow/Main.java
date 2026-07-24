@@ -65,10 +65,36 @@ public class Main {
         return max_count;
     }
 
+    public static int minSubArrayLen(int target, int[] nums) { // Variable Sliding Window Pattern
+        
+        int left = 0;
+        int sum = 0;
+        int minlength = Integer.MAX_VALUE;
+
+        for(int right = 0; right < nums.length; right++){ //Lettcode:209
+
+            sum += nums[right];
+
+            while(sum >= target){
+
+                minlength = Math.min(minlength, right - left + 1);
+
+                sum -= nums[left];
+
+                left++;
+            }
+        }
+        if (minlength == Integer.MAX_VALUE) {
+            return 0;
+        }
+        return minlength;
+    }
+
     public static void main(String[] args) {
 
         int nums[] = { 2, 4, 5, 7, 8, 7, 6, 5, 4 };
         //System.out.println(findMaxAverage(nums, 3));
-        System.out.println(maxVowels("injamam", 4));
+        //System.out.println(maxVowels("injamam", 4));
+        System.out.println(minSubArrayLen(23, nums));
     }
 }
