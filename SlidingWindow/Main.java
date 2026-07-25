@@ -1,5 +1,7 @@
 package SlidingWindow;
 
+import java.util.HashMap;
+
 public class Main {
 
     public static double findMaxAverage(int[] nums, int k) { // Fixed Window sliding Window pattern
@@ -89,6 +91,43 @@ public class Main {
         }
         return minlength;
     }
+
+    public static int lengthOfLongestSubstring(String s) { // LeetCode 3
+
+    HashMap<Character, Integer> map = new HashMap<>();
+
+    int left = 0;
+    int maxLength = 0;
+
+    for (int right = 0; right < s.length(); right++) {
+
+        char ch = s.charAt(right);
+
+        // Add current character to the window
+        map.put(ch, map.getOrDefault(ch, 0) + 1);
+
+        // Shrink the window until there are no duplicates
+        while (map.get(ch) > 1) {
+
+            char leftChar = s.charAt(left);
+
+            // Decrease frequency of left character
+            map.put(leftChar, map.get(leftChar) - 1);
+
+            // Remove it from map if frequency becomes 0
+            if (map.get(leftChar) == 0) {
+                map.remove(leftChar);
+            }
+
+            left++;
+        }
+
+        // Update answer after the window becomes valid
+        maxLength = Math.max(maxLength, right - left + 1);
+    }
+
+    return maxLength;
+}
 
     public static void main(String[] args) {
 
